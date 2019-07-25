@@ -1,0 +1,10 @@
+spring:
+    config:
+      name: blog-common
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: blog
+      password: blog
+      url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    jpa:
+      show-sql: true
