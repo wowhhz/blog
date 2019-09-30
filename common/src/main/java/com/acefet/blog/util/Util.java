@@ -79,7 +79,10 @@ public class Util {
      */
     public static String getBlobField(String blobContent) throws UnsupportedEncodingException {
         if (null==blobContent)return null;
-        return new String(blobContent.getBytes("ISO-8859-1"),"UTF-8");
+        String newStr = new String(blobContent.getBytes("ISO-8859-1"),"UTF-8");
+        if (blobContent.length() == newStr.length())
+            return blobContent;
+        return newStr;
     }
 
 

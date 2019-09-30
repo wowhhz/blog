@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum UserStatus {
-    NORMAL("normal","正常"),
+    NORMAL("enable","启用"),
     ERROR("error","异常"),
     DISABLE("disable","禁用");
 
@@ -23,6 +23,7 @@ public enum UserStatus {
      * @return
      */
     public static UserStatus getUserStatus(String statusCode){
+        if(statusCode==null)return null;
         UserStatus[] statuses = UserStatus.values();
         for(UserStatus userStatus : statuses){
             if(statusCode.equals(userStatus.getStatusCode())){
