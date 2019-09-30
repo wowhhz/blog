@@ -37,10 +37,10 @@ public class UserConvert {
      * @return
      */
     public static UserVO user2UserVO(User user){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO);
-        userVO.setStatus(UserStatus.getUserStatus(user.getStatus()));
+        userVO.setStatus(UserStatus.getUserStatus(user.getStatus()).getStatusCode());
         userVO.setCreateTime(sdf.format(user.getCreateTime()));
         return userVO;
     }

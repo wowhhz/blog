@@ -1,14 +1,9 @@
 package com.acefet.blog.form;
 
-import com.acefet.blog.constant.enums.FieldSortType;
-import com.acefet.blog.vo.ClassTypeVO;
-import com.acefet.blog.vo.CommentVO;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 public class ArticleForm {

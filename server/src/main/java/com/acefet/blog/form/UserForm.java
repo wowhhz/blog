@@ -2,6 +2,7 @@ package com.acefet.blog.form;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserForm {
 
+    private String id;
     /**名字*/
     @NotNull(message = "名字不能为空")
     @Length(min = 1,max = 32,message = "名字在32位以内")
@@ -20,9 +22,13 @@ public class UserForm {
     private String username;
     /**密码*/
     @NotNull(message = "密码不能为空")
-    @Length(min = 5,max = 32,message = "密码必须在5位以上，32位以内")
     private String password;
     /**头像*/
-    @Length(max = 255,message = "头像地址太长，存不下了")
-    private String icon;
+    private MultipartFile icon;
+    /**email*/
+    @Length(max = 255,message = "email太长，存不下了")
+    private String email;
+    /**手机*/
+    @Length(max = 11,message = "手机号太长，存不下了")
+    private String phone;
 }

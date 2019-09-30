@@ -5,6 +5,7 @@ import com.acefet.blog.form.CommentForm;
 import com.acefet.blog.util.Util;
 import com.acefet.blog.vo.CommentVO;
 import org.springframework.beans.BeanUtils;
+import org.springframework.util.StringUtils;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -24,7 +25,9 @@ public class CommentConvert {
         comment.setId(Util.getUUID());
         comment.setReleaseTime(new Timestamp(System.currentTimeMillis()));
         comment.setLikeNum(0);
+        comment.setUnlikeNum(0);
         comment.setSort(1);
+        if(StringUtils.isEmpty(comment.getHasCheck()))comment.setHasCheck("false");
         return comment;
     }
 
@@ -36,7 +39,7 @@ public class CommentConvert {
     public static CommentVO comment2CommentVO(Comment comment){
         CommentVO commentVO = new CommentVO();
         BeanUtils.copyProperties(comment,commentVO);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         commentVO.setReleaseTime(sdf.format(comment.getReleaseTime()));
         return commentVO;
     }

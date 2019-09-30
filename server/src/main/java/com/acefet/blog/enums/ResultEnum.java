@@ -6,11 +6,18 @@ import lombok.Getter;
 public enum  ResultEnum {
     PARAM_ERROR("b500","参数错误"),
 
+    CUSTOM_NOT_EXIST("b0101", "数据不存在"),
+    CUSTOM_EXIST("b0102","数据已存在"),
+    CUSTOM_TRANS_ERROR("b0103","数据转换异常"),
+
     USER_EXIST("b501","用户已存在"),
     USER_PWD_ERROR("b502","密码错误"),
     USER_TWOPWD_ERROR("b503","两次密码不一致"),
     USER_NOT_EXIST("b504","用户不存在"),
     USER_PWD_LENGTH_ERROR("b505","密码长度不正确（3-32位之间）"),
+    USER_DISABLE("b506","用户已禁用"),
+    USER_SESSION_ERROR("b507","获取用户信息失效，需要重新登录"),
+    USER_OLD_PWD_ERROR("b508","原密码错误"),
 
     CLASSTYPE_EXIST("b601","分类已存在"),
     CLASSTYPE_NOT_EXIST("b602","分类不存在"),

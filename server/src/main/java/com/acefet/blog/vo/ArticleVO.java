@@ -1,11 +1,7 @@
 package com.acefet.blog.vo;
 
-import com.acefet.blog.constant.enums.FieldSortType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
-import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 public class ArticleVO {

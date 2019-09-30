@@ -13,9 +13,13 @@ public class UserVO {
     /**用户名*/
     private String username;
     /**账户状态*/
-    private UserStatus status;
+    private String status;
     /**头像*/
     private String icon;
     /**创建时间*/
     private String createTime;
+    /**email*/
+    private String email;
+    /**手机号*/
+    private String phone;
 }

@@ -35,7 +35,7 @@ public class ArticleConvert {
     public static ArticleVO article2ArticleVO(Article article){
         ArticleVO articleVO = new ArticleVO();
         BeanUtils.copyProperties(article,articleVO);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         articleVO.setReleaseTime(sdf.format(article.getReleaseTime()));
         return articleVO;
     }
