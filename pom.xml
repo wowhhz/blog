@@ -24,19 +24,23 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <blog-common.version>0.0.1-SNAPSHOT</blog-common.version>
+        <blog-server.version>0.0.1-SNAPSHOT</blog-server.version>
     </properties>
 
 
     <packaging>pom</packaging>
-<!--
+    <!--
     <dependencies>
+        <dependency>
+            <groupId>com.acefet.blog</groupId>
+            <artifactId>blog-server</artifactId>
+            <version>${blog-server.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.acefet.blog</groupId>
             <artifactId>blog-common</artifactId>
             <version>${blog-common.version}</version>
         </dependency>
-
     </dependencies>
-           -->
-
+-->
 </project>
