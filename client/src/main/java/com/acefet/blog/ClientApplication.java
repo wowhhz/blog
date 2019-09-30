@@ -2,13 +2,21 @@ package com.acefet.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  *
- * Client 用于提供对外REST API
+ * Client 提供对外网页服务及REST API
  */
 @SpringBootApplication
-public class ClientApplication {
+public class ClientApplication extends SpringBootServletInitializer{
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        // 注意这里要指向原先用main方法执行的Application启动类
+        return builder.sources(ClientApplication.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(ClientApplication.class, args);

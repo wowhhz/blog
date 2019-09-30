@@ -1,0 +1,37 @@
+#文件上传路径
+web:
+  basePath: D:\\java\\IdeaProjects\\acefet\\blog\\client\\
+  #WEB-INF\\classes\\templates\\static\\attachments\\
+  attachments: target\\classes\\static\\assets\\attachments\\
+  attPath: ../assets/attachments/
+
+  #static-path: ../
+spring:
+    config:
+      name: blog-client
+    freemarker:
+      cache: true
+      check-template-location: true
+      charset: UTF-8
+      content-type: text/html
+#      template-loader-path: /templates/
+    mvc:
+      throw-exception-if-no-handler-found: true
+      #static-path-pattern: /static/**
+    resources:
+      add-mappings: true
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/assets/,classpath:/public/,classpath:/attachments,userFile:${web.basePath}
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: blog
+      password: blog
+      url: jdbc:mysql://www:3306/blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    servlet:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 200MB

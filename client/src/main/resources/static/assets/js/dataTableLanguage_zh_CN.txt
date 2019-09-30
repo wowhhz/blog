@@ -1,0 +1,32 @@
+﻿{
+	"decimal": "",
+	"emptyTable": "查无数据",
+	"lengthMenu": "每页显示 _MENU_ 条数据",
+	"zeroRecords": "没有匹配结果",
+	"info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项 ",//[ 第 _PAGE_ 页 / 共 _PAGES_ 页 ]
+	"infoEmpty": "查无数据",
+	"infoFiltered": "(由 _MAX_ 项结果过滤)",
+	"loadingRecords": "加载数据中，请稍候...",
+	"processing": "处理中，请稍候...",
+	"search": "搜索:",
+	"select": {
+		"rows": {
+			_: " 选中 %d 行",
+			0: ""
+		}
+	},
+	"paginate": {
+		"first": "首页",
+		"last": "末页",
+		"next": "下页",
+		"previous": "上页"
+	},
+	"aria": {
+		"sortAscending": ": 以升序排列此列",
+		"sortDescending": ": 以降序排列此列"
+	},
+	buttons: {
+		selectAll: "全选",
+		selectNone: "反选"
+	}
+}
