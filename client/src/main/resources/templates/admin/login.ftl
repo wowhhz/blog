@@ -26,7 +26,7 @@
         <!-- begin brand -->
         <div class="login-header">
             <div class="brand">
-                <span class="logo"></span> <b>Blog</b> Admin
+                <#--<span class="logo"></span>--> <b>Blog</b> Admin
                 <small>仅限管理员登录</small>
             </div>
             <div class="icon">

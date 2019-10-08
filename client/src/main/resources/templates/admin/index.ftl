@@ -24,7 +24,7 @@
 	<div id="header" class="header navbar-default">
 		<!-- begin navbar-header -->
 		<div class="navbar-header">
-			<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Blog</b> Admin</a>
+			<a href="index.html" class="navbar-brand"><#--<span class="navbar-logo"></span>--> <b>Blog</b> Admin</a>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>

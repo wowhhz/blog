@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="../" class="navbar-brand">
-                <span class="brand-logo"></span>
+                <!--<span class="brand-logo"></span>-->
                 <span class="brand-text">
                         blog.acefet.com
 					</span>
