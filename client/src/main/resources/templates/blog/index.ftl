@@ -58,7 +58,7 @@
 								<#if (simpleRemarkMap[item.id].startImageSrc??)>
 								<!-- begin post-image -->
 								<div class="post-image">
-									<a href="article/${item.id}">
+									<a href="../article/${item.id}">
 										<div class="post-image-cover" style="background-image: url('${simpleRemarkMap[item.id].startImageSrc}');"></div>
 									</a>
 								</div>
@@ -73,7 +73,7 @@
 								<!-- begin post-info -->
 								<div class="post-info">
 									<h4 class="post-title">
-										<a href="article/${item.id}">${item.title}</a>
+										<a href="../article/${item.id}">${item.title}</a>
 									</h4>
 									<div class="post-by">
 										<#if item.author!=""> 作者：${item.author} <span class="divider">|</span></#if> ${item.releaseTime}
@@ -90,7 +90,7 @@
 								<!-- end post-info -->
 								<!-- begin read-btn-container -->
 								<div class="read-btn-container">
-									<a href="article/${item.id}" class="read-btn">详情 <i class="fa fa-angle-double-right"></i></a>
+									<a href="../article/${item.id}" class="read-btn">详情 <i class="fa fa-angle-double-right"></i></a>
 								</div>
 								<!-- end read-btn-container -->
 							</div>
@@ -102,7 +102,7 @@
 					<div class="section-container">
 						<!-- begin pagination -->
 						<div class="pagination-container text-center">
-							<a href="list" class="btn btn-primary btn-lg btn-block">查看更多文章</a>
+							<a href="../list" class="btn btn-primary btn-lg btn-block">查看更多文章</a>
 						</div>
 						<!-- end pagination -->
 					</div>

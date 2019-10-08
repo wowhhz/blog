@@ -196,14 +196,14 @@
 						<#list articleList.content as item>
 							<li>
 								<div class="search-result-content">
-									<div class="post-title"><a href="article/${item.id}">${searchMap[item.id].title}</a></div>
+									<div class="post-title"><a href="../article/${item.id}">${searchMap[item.id].title}</a></div>
 									<div class="post-by">
 										<#if item.author!=""> 作者：${item.author} <span class="divider">|</span></#if> ${item.releaseTime}
 									</div>
 									<p>
 										${searchMap[item.id].content}
 									</p>
-									<a href="article/${item.id}">http://blog.acefet.com/article/${item.id}</a>
+									<a href="../article/${item.id}">http://blog.acefet.com/article/${item.id}</a>
 								</div>
 							</li>
 						</#list>
@@ -257,7 +257,7 @@
 						maxShowBtnCount: 3,
 						onPageChange: state => {
 						if(currentPage!=state.pageNumber){
-							location.href="search?q=<#if (q??)>${q}</#if>&pageNum="+state.pageNumber;
+							location.href="search?q=<#if (q??)>${q}</#if><#if (flag??)>&flag=true</#if><#if (author??)>&author=true</#if>&pageNum="+state.pageNumber;
 						}
 
 						//console.log('pagination change:', state.pageNumber)

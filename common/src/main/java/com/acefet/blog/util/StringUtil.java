@@ -44,7 +44,20 @@ public class StringUtil {
             } 
             sb.append(srcString.substring(1)); 
             return sb.toString(); 
-    } 
+    }
+
+	/**
+	 * 针对首字母进行大写转换
+	 * @param str
+	 * @return
+	 */
+	public static String upperCase(String str) {
+    	char[] ch = str.toCharArray();
+    	if (ch[0] >= 'a' && ch[0] <= 'z') {
+    		ch[0] = (char) (ch[0] - 32);
+    	}
+    	return new String(ch);
+    }
     
     /**
      * 将字符串数组转换成sql语句in()中的内容

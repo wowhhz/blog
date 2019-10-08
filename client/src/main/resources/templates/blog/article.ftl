@@ -47,7 +47,7 @@
 					<!-- begin post-detail -->
 					<div class="post-detail section-container">
 						<ul class="breadcrumb">
-							<li class="breadcrumb-item"><a href="/">主页</a></li>
+							<li class="breadcrumb-item"><a href="../">主页</a></li>
 							<li class="breadcrumb-item"><a href="../list">文章</a></li>
 							<li class="breadcrumb-item active"></li>
 						</ul>
@@ -55,10 +55,12 @@
 							<a href="${article.id}">${article.title}</a>
 						</h4>
 						<div class="post-by">
-							作者： <#if (article.author=="")>匿名<#else><a href="#">${article.author}</a></#if> <span class="divider">|</span> ${article.releaseTime} <span class="divider">|</span>
+							作者： <#if (article.author=="")>匿名<#else><a href="../search?author=true&q=${article.author}">${article.author}</a></#if> <span class="divider">|</span> ${article.releaseTime}
+							<#if (article.flags!='')><span class="divider">|</span>
 							<#list article.flags?split(",") as item>
-								<#if (item?index>0)>,</#if> <a href="#${item}">${item}</a>
+								<#if (item?index>0)>,</#if> <a href="../search?flag=true&q=${item}">${item}</a>
 							</#list>
+							</#if>
                             <p>
                                 <i class="fa fa-coffee"></i> 阅读量：${article.readNum} <span class="divider">|</span>
                                 <i class="fa fa-mouse-pointer"></i> 点赞数：${article.likeNum} <span class="divider">|</span>
@@ -75,7 +77,7 @@
 					<div class="section-container text-center">
 						<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"
 								onclick="javascript:addLike('${article.id}','true','article')">
-							赞同这篇文章 (<span id="article-${article.id}-likeNum">${article.likeNum}</span>)</button>
+							支持这篇文章，请点个赞 (<span id="article-${article.id}-likeNum">${article.likeNum}</span>)</button>
 					</div>
 					<!-- begin section-container -->
 					<div class="section-container">

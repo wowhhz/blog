@@ -24,6 +24,7 @@ public enum  ResultEnum {
 
     ARTICLE_EXIST("b701","文章已存在"),
     ARTICLE_NOT_EXIST("b702","文章不存在"),
+    ARTICLE_LENGTH_ERROR("b501","内容过长"),
 
     COMMENT_EXIST("b801","留言已存在"),
     COMMENT_NOT_EXIST("b802","留言不存在"),

@@ -45,7 +45,7 @@
                                     <#if (simpleRemarkMap[item.id].startImageSrc??)>
                                         <!-- begin post-image -->
                                         <div class="post-image">
-                                            <a href="article/${item.id}">
+                                            <a href="../article/${item.id}">
                                                 <div class="post-image-cover" style="background-image: url(${simpleRemarkMap[item.id].startImageSrc})"></div>
                                             </a>
                                         </div>
@@ -60,7 +60,7 @@
                                     <!-- begin post-info -->
                                     <div class="post-info">
                                         <h4 class="post-title">
-                                            <a href="article/${item.id}">${item.title}</a>
+                                            <a href="../article/${item.id}">${item.title}</a>
                                         </h4>
                                         <div class="post-by">
                                             <#if item.author!=""> 作者：${item.author} <span class="divider">|</span></#if> ${item.releaseTime}
@@ -74,7 +74,7 @@
                                             </div>
                                         </#if>
                                         <div class="read-btn-container">
-                                            <a href="article/${item.id}" class="read-btn">详情 <i class="fa fa-angle-double-right"></i></a>
+                                            <a href="../article/${item.id}" class="read-btn">详情 <i class="fa fa-angle-double-right"></i></a>
                                         </div>
                                     </div>
                                     <!-- end post-info -->
@@ -134,7 +134,7 @@
                         maxShowBtnCount: 3,
                         onPageChange: state => {
                             if(currentPage!=state.pageNumber){
-                                location.href="list?pageNum="+state.pageNumber+"<#if (classType??)>&classType=${classType.code}</#if>";
+                                location.href="../list?pageNum="+state.pageNumber+"<#if (classType??)>&classType=${classType.code}</#if>";
                             };
 
                     //console.log('pagination change:', state.pageNumber)

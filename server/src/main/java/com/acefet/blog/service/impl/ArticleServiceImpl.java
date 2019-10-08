@@ -12,6 +12,7 @@ import com.acefet.blog.repository.ArticleRepository;
 import com.acefet.blog.service.ArticleService;
 import com.acefet.blog.service.ClassTypeService;
 import com.acefet.blog.service.CommentService;
+import com.acefet.blog.util.StringUtil;
 import com.acefet.blog.util.Util;
 import com.acefet.blog.vo.ArticleVO;
 import com.acefet.blog.vo.ClassTypeVO;
@@ -118,6 +119,7 @@ public class ArticleServiceImpl implements ArticleService {
         String pageNum = (String)map.get("pageNum");
         String classTypeCode = (String)map.get("classTypeCode");
         String flag = (String)map.get("flag");
+        String author = (String)map.get("author");
 
         int size = com.acefet.blog.util.Page.PAGESIZE_DEFAULT, page = 0;
         if(pageNum==null || "".equals(pageNum.trim()))pageNum="1";
@@ -125,6 +127,10 @@ public class ArticleServiceImpl implements ArticleService {
         if(!Util.isNumeric(pageNum)){
             log.error("【查看文章】参数不正确，pageNum={}",pageNum);
             throw new SystemException(ResultEnum.PARAM_ERROR);
+        }
+        if(!StringUtils.isEmpty(searchValue) && searchValue.length()>50){
+            log.error("【查看文章】"+ResultEnum.ARTICLE_LENGTH_ERROR.getMessage()+"，searchValue={}",searchValue);
+            throw new SystemException(ResultEnum.ARTICLE_LENGTH_ERROR);
         }
         page = Integer.parseInt(pageNum)-1;
 
@@ -151,12 +157,20 @@ public class ArticleServiceImpl implements ArticleService {
                     predicateList.add(criteriaBuilder.equal(root.get("classTypeCode"),classTypeCode));
                 }
 
-                if(!StringUtils.isEmpty(searchValue)){
+                if(StringUtils.isEmpty(author) && StringUtils.isEmpty(flag) && !StringUtils.isEmpty(searchValue)){
                     String[] strs = searchValue.trim().split("\\s+");
+                    List<String> qlist = new ArrayList<String>();
+                    for (String str : strs){
+                        qlist.add(str);
+                        String _str = StringUtil.upperCase(str);
+                        if(!_str.equals(str)){
+                            qlist.add(_str);
+                        }
+                    }
                     List<Predicate> titlePredicates = new ArrayList<>();
                     List<Predicate> contentPredicates = new ArrayList<>();
                     List<Predicate> predicates = new ArrayList<>();
-                    for(String str: strs){
+                    for(String str: qlist){
                         titlePredicates.add(criteriaBuilder.like(root.get("title"),"%"+str+"%"));
                         contentPredicates.add(criteriaBuilder.like(root.get("content"),"%"+str+"%"));
                     }
@@ -172,7 +186,11 @@ public class ArticleServiceImpl implements ArticleService {
                 }
 
                 if(!StringUtils.isEmpty(flag)){
-                    predicateList.add(criteriaBuilder.like(root.get("flags"), searchValue));
+                    predicateList.add(criteriaBuilder.like(root.get("flags"), "%"+searchValue+"%"));
+                }
+
+                if(!StringUtils.isEmpty(author)){
+                    predicateList.add(criteriaBuilder.like(root.get("author"), "%"+searchValue+"%"));
                 }
                 return criteriaBuilder.and(predicateList.toArray(new Predicate[predicateList.size()]));
             }
