@@ -102,7 +102,11 @@
 					<div class="section-container">
 						<!-- begin pagination -->
 						<div class="pagination-container text-center">
-							<a href="../list" class="btn btn-primary btn-lg btn-block">查看更多文章</a>
+							<#if (articleList.content?size==0)>
+								当前还没发布文章
+							<#else>
+								<a href="../list" class="btn btn-primary btn-lg btn-block">查看更多文章</a>
+							</#if>
 						</div>
 						<!-- end pagination -->
 					</div>
