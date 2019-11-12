@@ -23,10 +23,10 @@ public interface CommentRepository extends PagingAndSortingRepository<Comment,St
 
     long countByHasCheck(String hasCheck);
 
-    @Query(value = "select sum(like_num) from comment", nativeQuery = true)
+    @Query(value = "select COALESCE(sum(like_num), 0) as likeNum from comment", nativeQuery = true)
     long totalLikeNum();
 
-    @Query(value = "select sum(unlike_num) from comment", nativeQuery = true)
+    @Query(value = "select COALESCE(sum(unlike_num),0) as unlikeNum from comment", nativeQuery = true)
     long totalUnlikeNum();
 
 

@@ -23,10 +23,10 @@ public interface ArticleRepository extends PagingAndSortingRepository<Article,St
 
     Page<Article> findAllByTitleLike(String searchValue, Pageable pageable);
 
-    @Query(value = "select sum(read_num) from article", nativeQuery = true)
+    @Query(value = "select COALESCE(sum(read_num),0) as readNum from article", nativeQuery = true)
     long totalReadNum();
 
-    @Query(value = "select sum(like_num) from article", nativeQuery = true)
+    @Query(value = "select COALESCE(sum(like_num),0) as likeNum from article", nativeQuery = true)
     long totalLikeNum();
 
     @Query(value = "select * from article order by read_num desc limit 0,1", nativeQuery = true)

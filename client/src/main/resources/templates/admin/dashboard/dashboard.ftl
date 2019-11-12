@@ -201,17 +201,17 @@
             </div>
             <!--<div id="visitors-map" class="bg-black" style="height: 179px;"></div>-->
             <div class="list-group">
-                <a href="javascript:;" title="${data.maxReadNumArticle.title}" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
-                    <span class="text-ellipsis li-title">${data.maxReadNumArticle.title}</span>
+                <a href="javascript:;" title="<#if (data.maxReadNumArticle??)>${data.maxReadNumArticle.title}</#if>" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                    <span class="text-ellipsis li-title"><#if (data.maxReadNumArticle??)>${data.maxReadNumArticle.title}</#if></span>
                     <span class="badge f-w-500 bg-gradient-teal f-s-10">浏览最多的文章</span>
                 </a>
 
-                <a href="javascript:;" title="${data.maxLikeNumArticle.title}" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
-                    <span class="text-ellipsis li-title">${data.maxLikeNumArticle.title}</span>
+                <a href="javascript:;" title="<#if (data.maxLikeNumArticle??)>${data.maxLikeNumArticle.title}</#if>" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                    <span class="text-ellipsis li-title"><#if (data.maxLikeNumArticle??)>${data.maxLikeNumArticle.title}</#if></span>
                     <span class="badge f-w-500 bg-gradient-teal f-s-10">最受欢迎的文章</span>
                 </a>
-                <a href="javascript:;" title="${data.maxCommentNumArticle.title}" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
-                    <span class="text-ellipsis li-title">${data.maxCommentNumArticle.title}</span>
+                <a href="javascript:;" title="<#if (data.maxCommentNumArticle?size>0)>${data.maxCommentNumArticle.title}</#if>" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                    <span class="text-ellipsis li-title"><#if (data.maxCommentNumArticle?size>0)>${data.maxCommentNumArticle.title}</#if></span>
                     <span class="badge f-w-500 bg-gradient-teal f-s-10">评论最多的文章</span>
                 </a>
                 <a href="javascript:;" title="<#if (topComments?size>0)>${topComments[0].content}</#if>" data-toggle="tooltip" class="list-group-item list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
